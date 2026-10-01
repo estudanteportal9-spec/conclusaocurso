@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificação de Documento</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #eef2f7, #dfe7ef);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      width: 95%;
+      max-width: 520px;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .top {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .top small {
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    .check {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 5px solid #28a745;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .check::after {
+      content: "✔";
+      font-size: 45px;
+      color: #28a745;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .dados {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .dados div {
+      margin-bottom: 6px;
+    }
+
+    .status {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .qr {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* ✅ AJUSTE DA IMAGEM (CORRIGE O TAMANHO) */
+    img {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 15px auto;
+      border-radius: 12px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+
+  <div class="check"></div>
+
+  <h1>Certificado Válida</h1>
+
+  <p>
+    Documento consultado e validado com sucesso em nossa base de dados.
+  </p>
+
+ 
+
+  <div class="qr">
+    <!-- 🔥 SUA IMAGEM AQUI -->
+    <img src="validado.png" alt="Documento válido">
+  </div>
+
+  <button class="btn" onclick="compartilhar()">Compartilhar</button>
+
+  <div class="footer">
+    Sistema de Verificação Documental • Ambiente Seguro
+  </div>
+
+</div>
+
+<script>
+function compartilhar() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Verificação de Documento',
+      text: 'Documento validado com sucesso.',
+      url: window.location.href
+    });
+  } else {
+    alert("Seu dispositivo não suporta compartilhamento direto.");
+  }
+}
+</script>
+
+</body>
+</html>
